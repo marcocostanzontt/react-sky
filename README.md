@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# First Step: Design of the APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+First of all I thought about how to structure the application, from a graphic and design point of view.
 
-## Available Scripts
+- Graphic: where to place the components in the view
+- Design: identify the role of each component
 
-In the project directory, you can run:
+# Second Step: Project Structure
 
-### `npm start`
+Subsequently I created the folders and placed the empty components that I gradually built.
+The APP is based on the atomic model in order to reuse them in the future.
+They are placed within the "components" folder.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Atoms: it contains basic components with their styles such as Headline, Input, Button and Pagination
+- Molecules: it contains the merge of the atoms with specific styles such as Searchbar (Input + Button) and TableWithPagination (Table + Pagination)
+- Organisms: it contains the Header component which is made up of a "Title" and "Searchbar"
+- Pages: it contains the pages. We have only one component "Page" where every logic is managed
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In addition I created the "services" folder to define the API to call
 
-### `npm test`
+# Style
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I created stylized components, based on native HTML components, through the "styled-components" library
 
-### `npm run build`
+# Logics
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Page.js: Contains the main logic of the APP.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - Query Management: I used "useSearchParams" hook for the management of the call. It allows us to call an API and save the result into a state. It also returns some values such as "isLoading" (the call is in progress or not), "error" (if the call fails). I also used an "useEffect" hook to align the input value with the queryParams value after a go back action.
+  - Pagination: This component also manages the pagination memorizing the current state of the page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- TableWithPagination.js: It is responsible for the actual pagination and builds the table with the downloaded values
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The other components doesn't own a particular logic because everything is managed outside of them in order to make them custom and reusable.
