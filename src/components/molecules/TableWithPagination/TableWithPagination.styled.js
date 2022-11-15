@@ -8,22 +8,3 @@ export const Wrapper = styled.div`
   color: black;
   font-size: 16px;
 `;
-
-export const Table = styled.table`
-  border-collapse: collapse;
-  width: 100%;
-`;
-
-export const Head = styled.th`
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-`;
-
-export const Col = styled.td`
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-`;
-
-export const Row = styled.tr``;

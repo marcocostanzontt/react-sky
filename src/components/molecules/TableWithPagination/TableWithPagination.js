@@ -1,7 +1,8 @@
 // Styled
-import { Wrapper, Table, Head, Row, Col } from "./TableWithPagination.styled";
+import { Wrapper } from "./TableWithPagination.styled";
 
 // Components
+import Table from "../../atoms/Table/Table";
 import Pagination from "../../atoms/Pagination/Pagination";
 
 const TableWithPagination = ({ data, page, perPage, onChange }) => {
@@ -10,45 +11,19 @@ const TableWithPagination = ({ data, page, perPage, onChange }) => {
   const tot = Math.ceil(data.length / perPage);
   const table = data?.slice(start - 1, end + 1);
 
-  const getColumns = () => {
-    return (
-      <Row>
-        <Head>Title</Head>
-        <Head>Description</Head>
-        <Head>URL</Head>
-        <Head>User Roles</Head>
-      </Row>
-    );
-  };
-  const getRows = () => {
-    return table.map((res, i) => {
-      return (
-        <Row key={`row-${i}`}>
-          <Col>{res.title}</Col>
-          <Col>{res.description}</Col>
-          <Col>{res.url}</Col>
-          <Col>
-            {res.userRoles.map((ur, j) => (
-              <p key={`ur-${j}`}>{ur}</p>
-            ))}
-          </Col>
-        </Row>
-      );
-    });
-  };
+  // get table columns
+  const columns = table?.length ? Object.keys(table[0]) : [];
+
   return (
     <Wrapper>
-      <Table>
-        {getColumns()}
-        {getRows()}
-        <Pagination
-          page={page}
-          start={start}
-          end={end}
-          tot={tot}
-          onChange={onChange}
-        />
-      </Table>
+      <Table data={table} columns={columns} />
+      <Pagination
+        page={page}
+        start={start}
+        end={end}
+        tot={tot}
+        onChange={onChange}
+      />
     </Wrapper>
   );
 };

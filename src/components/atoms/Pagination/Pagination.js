@@ -8,6 +8,7 @@ const Pagination = ({ page, start, end, tot, onChange }) => {
     for (let i = 1; i <= tot; i++) {
       items.push(
         <PaginationItem
+          key={`pagination-item-${i}`}
           style={page === i ? { backgroundColor: "navy", color: "white" } : {}}
           onClick={() => onChange(i)}
         >

@@ -22,6 +22,10 @@ In addition I created the "services" folder to define the API to call
 
 I created stylized components, based on native HTML components, through the "styled-components" library
 
+# Utils
+
+This folder contains helper functions such as "toCamelCase"
+
 # Logics
 
 - Page.js: Contains the main logic of the APP.
