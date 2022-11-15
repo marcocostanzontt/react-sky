@@ -16,8 +16,6 @@ They are placed within the "components" folder.
 - Organisms: it contains the Header component which is made up of a "Title" and "Searchbar"
 - Pages: it contains the pages. We have only one component "Page" where every logic is managed
 
-In addition I created the "services" folder to define the API to call
-
 # Style
 
 I created stylized components, based on native HTML components, through the "styled-components" library
@@ -25,6 +23,10 @@ I created stylized components, based on native HTML components, through the "sty
 # Utils
 
 This folder contains helper functions such as "toCamelCase"
+
+# Services
+
+This folder contains the endpoint definitions to call such as "getResults"
 
 # Logics
 
