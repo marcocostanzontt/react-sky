@@ -11,6 +11,9 @@ import TableWithPagination from "../molecules/TableWithPagination/TableWithPagin
 // Services
 import { getResults } from "../../services/api";
 
+// Assets
+import logo from "../../logo.svg";
+
 function Page() {
   // Hooks
 
@@ -55,9 +58,10 @@ function Page() {
 
   // Query Successful
   return (
-    <div>
+    <>
       <Header
-        title="Header"
+        logo={logo}
+        title="React Query"
         searchbar={{
           input: { value: query, onChange, onSubmit },
           button: { title: "Submit", onSubmit },
@@ -70,7 +74,7 @@ function Page() {
         perPage={10}
         onChange={onPaginationChange}
       />
-    </div>
+    </>
   );
 }
 

@@ -8,6 +8,7 @@ export const TableStyled = styled.table`
 `;
 
 export const Head = styled.th`
+  background: #dddddd3d;
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;

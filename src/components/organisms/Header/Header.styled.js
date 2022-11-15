@@ -5,6 +5,7 @@ import styled from "styled-components";
 export const HeaderStyled = styled.header`
   display: flex;
   flex: 1;
+  align-items: center;
   padding: 10px 20px;
   background: white;
   color: black;
@@ -12,10 +13,9 @@ export const HeaderStyled = styled.header`
   border-bottom: 1px solid #eaeaea;
 `;
 
-export const Title = styled.header`
+export const Title = styled.div`
   display: flex;
   flex: 1;
-  justify-content: flex-end;
   align-items: center;
   font-weight: bold;
   font-size: 20px;
